@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 
-import reducers from './reducers/main';
+import reducers from './reducers';
 import TestComponent from './components/test';
 
 const middleWareStore = applyMiddleware(promise)(createStore);
