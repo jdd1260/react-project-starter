@@ -33,13 +33,13 @@ gulp.task('enable-watch-mode', function() {
     watching = true;
 });
 
-gulp.task("buildJS", function() {
-    var bundler = browserify("src/js/index.js", { cache: {}, packageCache: {} });
+gulp.task('buildJS', function() {
+    var bundler = browserify('src/js/index.js', { cache: {}, packageCache: {} });
     
     function bundle() {
         bundler.ignore('reactstrap-tether');
 
-        return bundler.transform("babelify", {presets: ["es2015", "react"]})
+        return bundler.transform('babelify', {presets: ['es2015', 'react']})
             .bundle()
             .on('error', gutil.log.bind(gutil, 'Browserify Error'))
             .pipe(source('index.js'))
