@@ -1,0 +1,64 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+
+class {{ name }} extends Component {
+    
+    onSubmit(values) {
+        //handle form submit here
+    }
+ 
+    //render an individual field
+    renderField(field) {
+        const { meta } = field;
+        const isError = meta.touched && meta.error;
+        
+        return (
+            <div className={ `form-group ${ isError ? 'has-danger' : ''}` } >
+                <label className="form-control-label"> {field.label} </label>
+                <input
+                    className={`form-control ${ isError ? 'is-invalid' : ''}` }
+                    type={field.type}
+                    {...field.input}
+                />
+                <div className="invalid-feedback">
+                    {meta.touched ? meta.error : ''}
+                </div>
+            </div>
+        );
+    }
+ 
+    render() {
+        const {handleSubmit} = this.props;
+        return (
+            <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } noValidate>
+                <Field 
+                    name="title"
+                    label="Title"
+                    component={this.renderField}    
+                    type="text"
+                />
+                <button type="submit" className="btn btn-primary"> Submit </button>
+            </form>
+        );
+    }
+}
+
+//form validation
+function validate(values) {
+    const errors = {};
+    if (!values.title) {
+        errors.title = "Enter a title!";
+    }
+    return errors;
+}
+
+//connect form to redux state
+export default reduxForm(
+    {
+        validate, 
+        form: '{{name}}Form'
+        
+    })(
+        connect(null, { })({{name}})
+);

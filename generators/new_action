@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+const _ = require('lodash');
+const buildFromTemplate = require('./buildFromTemplate');
+const appendToFile = require('./appendToFile'); 
+
+const actionName = _.get(process.argv, '2');
+
+const templateValues = buildFromTemplate(actionName, 'newAction.tmpl', 'js/actions');
+
+const newLine = `export { ${templateValues.name}, ${templateValues.nameCaps} } from './${templateValues.camelCase}';`;
+
+appendToFile('js/actions/index.js', newLine);
