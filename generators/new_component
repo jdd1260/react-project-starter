@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+const handlebars = require('handlebars');
+const fs = require('fs');
+const path = require('path');
+const _ = require('lodash');
+
+const componentName = _.get(process.argv, '2');
+
+if (!componentName) {
+    console.log("A Component Name must be provided (one word)");
+    process.exit(1);
+}
+
+const templateFileName = path.join(__dirname, 'templates', 'newComponent.tmpl');
+const template = fs.readFileSync(templateFileName, "utf8");
+const result = handlebars.compile(template)({componentName});
+const outputFileName = path.join(__dirname, '..', 'src', 'js', 'components', _.camelCase(componentName) + ".js") ;
+
+fs.writeFileSync(outputFileName, result);
