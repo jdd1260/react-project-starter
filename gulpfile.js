@@ -19,7 +19,12 @@ gulp.task('clean',
     function() {
         return del.sync(['public/**/*']);
     }
-)
+);
+
+
+gulp.task('copyAssets', function () {
+    return gulp.src('src/assets/**/*').pipe(gulp.dest('public/'));
+});
 
 gulp.task('buildHTML', function () {
     return gulp.src('src/html/**/*.html').pipe(gulp.dest('public/'));
@@ -95,7 +100,7 @@ gulp.task('serve', function() {
 
 
 
-gulp.task('build', ['clean', 'buildJS', 'buildCSS', 'buildHTML']);
+gulp.task('build', ['clean', 'buildJS', 'buildCSS', 'buildHTML', 'copyAssets']);
 
 gulp.task('default', ['enable-watch-mode', 'build', 'serve']);
 
