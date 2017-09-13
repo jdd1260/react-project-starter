@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const _ = require('lodash');
+const buildFromTemplate = require('./buildFromTemplate');
+const addLinesAround = require('./addLinesAround');
+
+const reducerName = _.get(process.argv, '2');
+
+const templateValues = buildFromTemplate(reducerName, 'newReducer.tmpl', 'js/reducers');
+
+const importLine = `import ${templateValues.name}Reducer from './${ templateValues.camelCase}';\n`;
+const expectedLine = 'const rootReducer = combineReducers({';
+const addReducerLine = `    ${templateValues.camelCase}: ${templateValues.name}Reducer,`;
+
+
+addLinesAround('js/reducers/index.js', expectedLine, importLine, addReducerLine);
