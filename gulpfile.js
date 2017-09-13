@@ -33,8 +33,10 @@ gulp.task('buildHTML', function () {
 // Hack to enable configurable watchify watching
 var watching = false;
 gulp.task('enable-watch-mode', function() { 
+    gulp.watch('src/assets/**/*', ['copyAssets']);
     gulp.watch('src/html/**/*.html', ['buildHTML']);
     gulp.watch('src/sass/**/*.scss', ['buildCSS']);
+    //watch JS handle by watchify using this variable
     watching = true;
 });
 
