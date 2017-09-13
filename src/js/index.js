@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 
 import reducers from './reducers';
-import TestComponent from './components/test';
+import Example from './components/example';
 
 const middleWareStore = applyMiddleware(promise)(createStore);
 
@@ -15,7 +15,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/" component={TestComponent} /> 
+          <Route path="/" component={Example} /> 
         </Switch>
       </div>
     </BrowserRouter>
