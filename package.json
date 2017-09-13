@@ -1,7 +1,7 @@
 {
   "name": "react-project-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "A project starter kit for React development",
   "main": "gulpfile.js",
   "dependencies": {
     "bootstrap": "^4.0.0-beta",
@@ -9,8 +9,6 @@
     "jquery": "^3.2.1",
     "popper.js": "^1.12.5",
     "react": "^15.6.1",
-    "react-addons-css-transition-group": "^15.6.0",
-    "react-addons-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
@@ -39,17 +37,13 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jdd1260/react-project-starter.git"
+    "url": "https://github.com/jdd1260/react-project-starter.git"
   },
-  "author": "",
+  "author": "Joel Detweiler",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jdd1260/react-project-starter/issues"
-  },
-  "homepage": "https://github.com/jdd1260/react-project-starter#readme"
+  }
 }
