@@ -43,20 +43,20 @@ cd ..
 Call a generator each time you want a new React component: 
 
 ```
-generators/new_component Item
+generators/new_component --name Item
 ```
 
-This will create a new JavaScript file called item.js in the src/js/components directory. The file will come with an exported component called `Item` that is connected to Redux. Boilerplate methods are provided but empty. 
+This will create a new JavaScript file called index.js in the src/js/components/item directory. The file will come with an exported component called `Item` that is connected to Redux. Boilerplate methods are provided but empty. 
 
 ### Form Component Generator 
 
-Call the form generator each time you want a component that utilizes Redux Form:
+Call the component generator with a special argument each time you want a component that utilizes Redux Form:
 
 ```
-generators/new_form_component User
+generators/new_component --name User --form true
 ```
 
-This will create a new JavaScript file called user.js in the src/js/components/forms directory. The file will come with an exported component called `User` that is connected to Redux via Redux Form. Boilerplate methods are provided for field generation, validation, and error messaging. 
+This will create a new JavaScript file called index.js in the src/js/components/user directory. The file will come with an exported component called `User` that is connected to Redux via Redux Form. Boilerplate methods are provided for field generation, validation, and error messaging. 
 
 
 ### Action Generator 
@@ -64,7 +64,7 @@ This will create a new JavaScript file called user.js in the src/js/components/f
 Call a generator each time you want a new Redux action: 
 
 ```
-generators/new_action Search
+generators/new_action --name Search
 ```
 
 This will create a new JavaScript file called search.js in the src/js/actions directory. The file will come with an exported function called `Search` that is then automatically imported and exported in the actions/index.js file for general usage. 
@@ -75,7 +75,7 @@ This will create a new JavaScript file called search.js in the src/js/actions di
 Call a generator each time you want a new Redux reducer: 
 
 ```
-generators/new_reducer Items
+generators/new_reducer --name Items
 ```
 
 This will create a new JavaScript file called items.js in the src/js/reducers directory. The file will come set up for managing state based on actions. The exported function is automatically added to the whole state in src/js/reducers/index.js. `items` is the field name storing the output of your reducer that is added to the Redux state.
