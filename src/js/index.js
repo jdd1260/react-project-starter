@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 
 import reducers from './reducers';
@@ -12,13 +12,13 @@ const middleWareStore = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={middleWareStore(reducers)}>
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <Switch>
-          <Route path="/" component={Example} /> 
+          <Route exact path="/" component={Example} /> 
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
     
   </Provider>
   , document.querySelector('.container'));
