@@ -1,8 +1,0 @@
-#!/usr/bin/env node
-
-const _ = require('lodash');
-const buildFromTemplate = require('./buildFromTemplate');
-
-const componentName = _.get(process.argv, '2');
-
-buildFromTemplate(componentName, 'newFormComponent.tmpl', 'js/components/forms');

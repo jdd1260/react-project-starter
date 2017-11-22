@@ -5,4 +5,6 @@ const buildFromTemplate = require('./buildFromTemplate');
 
 const componentName = _.get(process.argv, '2');
 
-buildFromTemplate(componentName, 'newComponent.tmpl', 'js/components');
+const isForm = Boolean(_.get(process.argv, '3', false));
+
+buildFromTemplate('index', isForm ? 'newFormComponent.tmpl' : 'newComponent.tmpl', `js/components/${componentName}`);
