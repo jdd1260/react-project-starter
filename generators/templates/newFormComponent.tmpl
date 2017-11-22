@@ -29,7 +29,7 @@ class {{ name }} extends Component {
     }
  
     render() {
-        const {handleSubmit} = this.props;
+        const { handleSubmit } = this.props;
         return (
             <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } noValidate>
                 <Field 
@@ -53,6 +53,12 @@ function validate(values) {
     return errors;
 }
 
+function mapStateToProps(state) {
+    return {}; 
+}
+
+const actions = {};
+
 //connect form to redux state
 export default reduxForm(
     {
@@ -60,5 +66,5 @@ export default reduxForm(
         form: '{{name}}Form'
         
     })(
-        connect(null, { })({{name}})
+        connect(mapStateToProps, actions)({{name}})
 );
